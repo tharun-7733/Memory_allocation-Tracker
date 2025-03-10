@@ -139,7 +139,7 @@ def update(frame):
         for text in ax.legend().get_texts():
             text.set_color("white")
 
-    memory_text.set_text(f"Total Memory: {total_memory:.2f} GB | Used: {used_memory:.2f} GB | Available: {available_memory:.2f} GB | Cached: {cached_memory:.2f} GB")
+    memory_text.set_text(f"Total Memory: {total_memory:.2f} GB | Used: {used_memory:.2f} GB | Available: {available_memory:.2f} GB | Cached: {cached_memory:.2f} GB | Swap: {swap_usage[-1]:.2f}%")
     disk_text.set_text(f"Disk Memory: {total_disk:.2f} GB | Used: {used_disk:.2f} GB | Available: {available_disk:.2f} GB")
     paging_text.set_text(f"Paging: {len(get_paging())} Pages")
     segmentation_text.set_text(f"Segmentation: Code: {get_segmentation(used_memory)['Code']['Limit']:.2f} GB")
