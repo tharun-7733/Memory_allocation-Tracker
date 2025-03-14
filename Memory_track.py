@@ -144,6 +144,6 @@ def update(frame):
     paging_text.set_text(f"Paging: {len(get_paging())} Pages")
     segmentation_text.set_text(f"Segmentation: Code: {get_segmentation(used_memory)['Code']['Limit']:.2f} GB")
     fig.canvas.draw()
-
+    fig_text.canvas.draw()
 ani = FuncAnimation(fig, update, interval=2000)
 plt.show()
