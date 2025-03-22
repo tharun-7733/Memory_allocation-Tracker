@@ -33,9 +33,11 @@ segmentation_text = fig_text.text(0.1, 0.60, "", fontsize=12, color="white", fon
 # Cache Memory
 def get_cached_memory():
     vm = psutil.virtual_memory()
+    if hasattr(vm, 'cached'):
+        return vm.cached / (1024**3)
     if platform.system() == "Darwin":
         return getattr(vm, 'inactive', 0) / (1024**3)
-    return getattr(vm, 'cached', 0) / (1024**3)
+    return 0
 
 
 # Paging
