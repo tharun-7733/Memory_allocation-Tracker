@@ -25,7 +25,7 @@ memory_text = fig_text.text(0.1, 0.80, "", fontsize=12, color="white", fontweigh
 disk_text = fig_text.text(0.1, 0.70, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
 cpu_text = fig_text.text(0.1, 0.40, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
 swap_text = fig_text.text(0.1, 0.20, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
-paging_text = fig_text.text(0.1, 0.9, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
+paging_text = fig_text.text(0.1, 0.50, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
 segmentation_text = fig_text.text(0.1, 0.60, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
 
 
