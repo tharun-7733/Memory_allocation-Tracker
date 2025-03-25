@@ -25,8 +25,8 @@ memory_text = fig_text.text(0.1, 0.80, "", fontsize=12, color="white", fontweigh
 disk_text = fig_text.text(0.1, 0.70, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
 cpu_text = fig_text.text(0.1, 0.40, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
 swap_text = fig_text.text(0.1, 0.20, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
-Segmentation_paging_text = fig_text.text(0.1, 0.60, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
-# segmentation_text = fig_text.text(0.1, 0.60, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
+Paging_text = fig_text.text(0.1, 0.60, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
+Segmentation_text = fig_text.text(0.1, 0.18, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
 
 
 
@@ -143,7 +143,17 @@ def update(frame):
 
     memory_text.set_text(f"Total Memory: {total_memory:.2f} GB | Used: {used_memory:.2f} GB | Available: {available_memory:.2f} GB | Cached: {cached_memory:.2f} GB | Swap: {swap_usage[-1]:.2f}%")
     disk_text.set_text(f"Disk Memory: {total_disk:.2f} GB | Used: {used_disk:.2f} GB | Available: {available_disk:.2f} GB")
-    Segmentation_paging_text.set_text(f"Paging: {len(get_paging())} Pages | Segmentation: Code: {get_segmentation(used_memory)['Code']['Limit']:.2f} GB")
+    Paging_text.set_text(f"Paging: {len(get_paging())} Pages")
+    segmentation = get_segmentation(used_memory)
+    Segmentation_text.set_text(
+        f"Segmentation: \n"
+
+        f"Code: Size {segmentation['Code']['Limit'] - segmentation['Code']['Base']:.2f} GB\n"
+        f"Data: Size {segmentation['Data']['Limit'] - segmentation['Data']['Base']:.2f} GB\n"
+        f"Heap: Size {segmentation['Heap']['Limit'] - segmentation['Heap']['Base']:.2f} GB\n"
+        f"Stack: Size {segmentation['Stack']['Limit'] - segmentation['Stack']['Base']:.2f} GB\n"
+        f"Unused: Size {segmentation['Unused']['Limit'] - segmentation['Unused']['Base']:.2f} GB"
+    )  
     fig.canvas.draw()
     fig_text.canvas.draw()
 ani = FuncAnimation(fig, update, interval=2000)
