@@ -25,8 +25,9 @@ memory_text = fig_text.text(0.1, 0.80, "", fontsize=12, color="white", fontweigh
 disk_text = fig_text.text(0.1, 0.70, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
 cpu_text = fig_text.text(0.1, 0.40, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
 swap_text = fig_text.text(0.1, 0.20, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
-Paging_text = fig_text.text(0.1, 0.60, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
-Segmentation_text = fig_text.text(0.1, 0.18, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
+Paging_text = fig_text.text(0.4, 0.22, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
+Segmentation_text = fig_text.text(0.1, 0.28, "", fontsize=12, color="white", fontweight="bold", bbox=dict(facecolor="black", edgecolor="white"))
+
 
 
 
@@ -143,7 +144,13 @@ def update(frame):
 
     memory_text.set_text(f"Total Memory: {total_memory:.2f} GB | Used: {used_memory:.2f} GB | Available: {available_memory:.2f} GB | Cached: {cached_memory:.2f} GB | Swap: {swap_usage[-1]:.2f}%")
     disk_text.set_text(f"Disk Memory: {total_disk:.2f} GB | Used: {used_disk:.2f} GB | Available: {available_disk:.2f} GB")
-    Paging_text.set_text(f"Paging: {len(get_paging())} Pages")
+    page_table = get_paging()
+    total_pages = len(page_table)
+
+    # Get a few sample page mappings (First 5 pages)
+    sample_pages = "\n".join([f"Page {vp} → Frame {pf}" for vp, pf in list(page_table.items())[:5]])
+
+    Paging_text.set_text(f"Paging: {total_pages} Pages\nSample Mappings:\n{sample_pages}")
     segmentation = get_segmentation(used_memory)
     Segmentation_text.set_text(
         f"Segmentation: \n"
