@@ -77,12 +77,12 @@ def update(frame):
     available_memory = psutil.virtual_memory().available / (1024**3)
     cached_memory = get_cached_memory()
     ram = psutil.virtual_memory().percent
-    total_disk = psutil.disk_usage('/').total / (1024**3)
-    used_disk = psutil.disk_usage('/').used / (1024**3)
-    available_disk = psutil.disk_usage('/').free / (1024**3)
+    total_disk = psutil.disk_usage('../').total / (1024**3)
+    used_disk = psutil.disk_usage('../').used / (1024**3)
+    available_disk = psutil.disk_usage('../').free / (1024**3)
     cpu = psutil.cpu_percent()
     swap = psutil.swap_memory().percent
-    disk = psutil.disk_usage('/').percent
+    disk = psutil.disk_usage('../').percent
 
     time_stamps.append(time.strftime('%H:%M:%S'))
     memory_used.append(used_memory)
