@@ -132,7 +132,7 @@ class MemoryVisualizerApp:
         self.style.configure(
             "SysInfo.TLabel",
             background="#ffffff",
-            foreground=COLORS['text_dark'],
+            foreground=COLORS['text_light'],
             padding=2
         )
         
@@ -140,7 +140,7 @@ class MemoryVisualizerApp:
         self.style.configure(
             "Treeview", 
             background="#ffffff",
-            foreground=COLORS['text_dark'],
+            foreground=COLORS['text_light'],
             rowheight=25,
             fieldbackground="#ffffff"
         )
@@ -652,7 +652,7 @@ class MemoryVisualizerApp:
         
         # Disk info - using the root partition by default
         try:
-            disk = psutil.disk_usage('/')
+            disk = psutil.disk_usage('../')
             disk_total = disk.total / (1024 ** 3)  # Convert to GB
             disk_used = disk.used / (1024 ** 3)
             disk_free = disk.free / (1024 ** 3)
