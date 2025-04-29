@@ -3,7 +3,7 @@ Overview
 This project is a comprehensive tool for visualizing and understanding memory management techniques in operating systems. It includes:
 
 Real-Time Allocation Tracker: Monitors and visualizes memory allocation and deallocation in real-time, providing insights into memory usage patterns.
-Paging System: An interactive visualization of memory address translation and page replacement algorithms (FIFO, LRU, Clock), demonstrating how virtual addresses are mapped to physical addresses.
+Paging System: An interactive visualization of memory address translation and page replacement algorithms (FIFO, LRU), demonstrating how virtual addresses are mapped to physical addresses.
 Segmentation Techniques: (Placeholder - to be detailed based on your implementation) Visualizes memory segmentation, showing how logical address spaces are divided into segments.
 
 The project is built using Python and PyQt5, offering a user-friendly GUI for exploring these memory management concepts. It is designed for educational purposes, helping students and developers understand memory allocation, paging, and segmentation.
@@ -44,7 +44,7 @@ Demonstrate segment-based memory management.
 
 
 
-Prerequisites
+```Prerequisites```
 
 Python: Version 3.8 or higher.
 PyQt5: For the graphical user interface.
